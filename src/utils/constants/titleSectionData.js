@@ -1,10 +1,10 @@
 export const titleSectionData = [
   {
     title: "Featured Categories",
-    showMore:"See All Products"
   },
   {
     title: "Featured Products",
+    showMore: "See All Products",
   },
   {
     title: "New Arrivals",

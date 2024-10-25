@@ -7,43 +7,41 @@ import BannerCarousel from "../components/BannerCarousel";
 import TitleSection from "../components/common/TitleSection";
 import DualBanner from "../components/DualBanner";
 import { titleSectionData } from "../utils/constants/titleSectionData";
+import { categoryCardsData } from "../utils/constants/categoryCard";
 
 const Home = () => {
   const productsData = useContext(ProductsContext);
   const featuresCard = useContext(FeatureContext);
 
-  console.log(featuresCard);
+  // console.log(featuresCard);
 
-  const [showAll, setShowAll] = useState(false);
-  const [productsExpanded, setProductsExpended] = useState("See All Products");
+  const filteredCategories = productsData?.map((item) => item?.category);
+  console.log(filteredCategories);
 
-  const handleSeeAll = () => {
-    setShowAll(!showAll);
-    showAll
-      ? setProductsExpended("See All Products")
-      : setProductsExpended("View Less");
-    // : setProductsExpended("See All Products");
-  };
+  const catName = new Set(...[filteredCategories]);
+  console.log(catName);
 
-  console.log(productsData);
   return (
     <div>
-      <Header />
       <BannerCarousel />
       <DualBanner />
-      <TitleSection
-        data={titleSectionData[0]}
-        handleClick={handleSeeAll}
-        handleText={productsExpanded}
-      />
-      <div className="flex flex-wrap justify-between container mx-auto px-10 ">
-        {showAll
-          ? productsData?.map((item) => <Card key={item.id} data={item} />)
-          : productsData
-              ?.slice(0, 10)
-              .map((item) => <Card key={item.id} data={item} />)}
+      <TitleSection data={titleSectionData[0]} />
+      <div className="flex">
+        {categoryCardsData.map((item, index) => {
+          return (
+            <div key={index} >
+              <span className="text-9xl">{item.img}</span>
+            </div>
+          );
+        })}
       </div>
-      <TitleSection data={titleSectionData[1]} />
+
+      <TitleSection data={titleSectionData[1]} show={true} />
+      <div className="flex flex-wrap justify-between container mx-auto px-10 ">
+        {productsData?.slice(0, 10).map((item) => (
+          <Card key={item.id} data={item} />
+        ))}
+      </div>
     </div>
   );
 };

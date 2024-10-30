@@ -15,7 +15,7 @@ const Product = () => {
   return (
     <div>
       <TitleSection data={titleSectionData[0]} />
-      <div className="flex flex-wrap justify-between container mx-auto px-10 ">
+      <div className="flex flex-wrap justify-between max-sm:justify-center container mx-auto px-10 ">
         {productsData?.map((item) => (
           <Card key={item.id} data={item} />
         ))}

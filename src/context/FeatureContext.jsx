@@ -8,9 +8,7 @@ export const FeatureProvider = ({ children }) => {
   const [products, setProducts] = useState(null);
 
   const getData = async () => {
-    const response = await axios.get(
-      " https://api.escuelajs.co/api/v1/categories"
-    );
+    const response = await axios.get(" https://fakestoreapi.com/products/");
     setProducts(response?.data);
   };
 

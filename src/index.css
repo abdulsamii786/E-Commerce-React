@@ -5,3 +5,17 @@
 * {
   font-family: "Open Sans", sans-serif;
 }
+
+.slick-arrow::before {
+  color: red;
+  display: block;
+  font-size: 35px;
+  line-height: 1;
+  width: 30px;
+}
+.slick-prev {
+  left: -32px;
+}
+.slick-next {
+  right:-15px;
+}

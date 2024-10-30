@@ -18,9 +18,9 @@ const BannerCarousel = () => {
     <div className="slider-container container mx-auto">
       <Slider {...settings}>
         {bannerCarousel.map((item, key) => (
-          <div key={key} className="container px-10 mx-auto  ">
+          <div key={key} className="container px-10 mx-auto max-sm:px-2  ">
             <img
-              className="w-full h-[650px] object-cover rounded-lg"
+              className="w-full h-[650px] object-cover rounded-lg max-sm:h-52 max-sm:object-cover max-sm:rounded-lg"
               src={item.img}
             />
           </div>

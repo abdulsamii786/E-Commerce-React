@@ -19,4 +19,20 @@ export const categoryCardsData = [
     title: "TV",
     img: <FaTv />,
   },
+  {
+    title: "Men's Clothing",
+    img: <FaTv />,
+  },
+  {
+    title: "Women's Clothing",
+    img: <FaTv />,
+  },
+  {
+    title: "Jewelery",
+    img: <FaTv />,
+  },
+  {
+    title: "Electronics",
+    img: <FaTv />,
+  },
 ];

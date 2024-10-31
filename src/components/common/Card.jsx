@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-const Card = ({ data }) => {
+const Card = ({data}) => {
   const {
     title,
     price,
@@ -22,7 +22,7 @@ const Card = ({ data }) => {
         />
       </div>
       <div className="p-3">
-        <h3 className="text-lg font-bold">{title.slice(0, 20) + "..."}</h3>
+        <h3 className="text-lg font-bold">{title?.slice(0, 20) + "..."}</h3>
         <p className="text-[#5a5a5a] text-[15px] leading-loose">
           {description.slice(0, 50) + "..."}
         </p>

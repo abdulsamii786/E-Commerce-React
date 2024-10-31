@@ -1,23 +1,36 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Card from "../components/common/Card";
 import TitleSection from "../components/common/TitleSection";
 import ProductsContext from "../context/ProductsContext";
 import { titleSectionData } from "../utils/constants/titleSectionData";
+import FeatureContext from "../context/FeatureContext";
+import { useNavigate } from "react-router";
 
 const Product = () => {
-  const productsData = useContext(ProductsContext);
-  const filteredCategories = productsData?.map((item) => item?.category);
-  console.log(filteredCategories);
+  const navigate = useNavigate();
 
-  const catName = new Set(...[filteredCategories]);
-  console.log(catName);
+  const productsData1 = useContext(ProductsContext);
+  const productsData2 = useContext(FeatureContext);
+
+  const [products, setProducts] = useState([]);
+
+  const allProductsData = productsData2?.concat(productsData1);
+
+  useEffect(() => {
+    setProducts(allProductsData);
+  }, [productsData1]);
 
   return (
     <div>
       <TitleSection data={titleSectionData[0]} />
       <div className="flex flex-wrap justify-between max-sm:justify-center container mx-auto px-10 ">
-        {productsData?.map((item) => (
-          <Card key={item.id} data={item} />
+        {products?.map((item, index) => (
+          <div
+            onClick={() => navigate(`/products/${item.category}`)}
+            key={index}
+          >
+            <Card data={item} />
+          </div>
         ))}
       </div>
     </div>

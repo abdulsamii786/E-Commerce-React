@@ -14,11 +14,13 @@ const Header = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between py-4 px-2 container mx-auto sticky top-0 z-10 bg-white max-sm:overflow-hidden">
       <div className="flex items-center justify-between w-full md:w-auto mb-4 md:mb-0">
-        <img
-          className="cursor-pointer"
-          src="/assets/imgs/logo.svg"
-          alt="Logo"
-        />
+        <NavLink to="/">
+          <img
+            className="cursor-pointer"
+            src="/assets/imgs/logo.svg"
+            alt="Logo"
+          />
+        </NavLink>
         <button
           className="md:hidden text-[#343d48] focus:outline-none"
           onClick={toggleMobileMenu}

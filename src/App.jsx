@@ -9,8 +9,12 @@ const App = () => {
     <div>
       <Header />
       <Routes>
-        {routes.map(({ element, path }, key) => (
-          <Route key={key} element={element} path={path} />
+        {routes?.map(({ element, path, children }, key) => (
+          <Route key={key} element={element} path={path}>
+            {children?.map((item, index) => (
+              <Route key={index} path={item.path} element={item.element} />
+            ))}
+          </Route>
         ))}
       </Routes>
     </div>
